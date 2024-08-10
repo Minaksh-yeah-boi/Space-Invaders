@@ -49,3 +49,4 @@ void ServiceLocator::render()
 
 GraphicService* ServiceLocator::getGraphicService() { return graphic_service; }
 EventService* ServiceLocator::getEventService() { return event_service; }
+PlayerService* ServiceLocator::getPlayerService() { return player_service; }
