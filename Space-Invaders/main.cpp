@@ -1,5 +1,6 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
+#include "header/GameService.h"
 
 class Player
 {
@@ -34,6 +35,7 @@ public:
 
 int main() {
 
+    /*
     sf::VideoMode videoMode = sf::VideoMode(800, 600); // Define the video mode (dimensions)
 
     sf::RenderWindow window(videoMode, "SFML Window");  // Create a window object
@@ -71,5 +73,16 @@ int main() {
 
     } // end while loop
 
+    return 0; */
+
+    GameService game_service; //create object
+    game_service.ignite(); // this will 'ignite' or start the flow of our game
+
+    // while the game is running we will update the game loop
+    while (game_service.isRunning())
+    {
+        game_service.update();
+        game_service.render();
+    }
     return 0;
 }
