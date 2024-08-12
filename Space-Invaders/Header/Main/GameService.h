@@ -22,6 +22,8 @@ namespace Main {
 		void initializeVariables();// Handles game initialization.
 		void destroy();			// Handles cleanup tasks.
 
+		void showMainMenu();
+
 		static GameState current_state; // what is that static keyword??? We will discuss this later.
 
 	public:
