@@ -4,6 +4,13 @@
 
 namespace Main {
 
+	enum class GameState //create the enum
+	{
+		BOOT,
+		MAIN_MENU,
+		GAMEPLAY,
+	};
+
 	class GameService
 	{
 	private:
@@ -15,6 +22,8 @@ namespace Main {
 		void initializeVariables();// Handles game initialization.
 		void destroy();			// Handles cleanup tasks.
 
+		static GameState current_state; // what is that static keyword??? We will discuss this later.
+
 	public:
 
 		GameService();			// Constructor for initializing the GameService object.
@@ -24,6 +33,9 @@ namespace Main {
 		void update();			// Updates the game logic and game state.
 		void render();			// Renders each frame of the game.
 		bool isRunning();		// Checks if the game is currently running.
+
+		static void setGameState(GameState new_state);
+		static GameState getGameState();
 	};
 
 }
