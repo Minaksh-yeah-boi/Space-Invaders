@@ -1,27 +1,33 @@
 #include "../../Header/Player/PlayerService.h"
 #include "../../Header/Player/PlayerController.h"
+#include "../../header/Global/ServiceLocator.h"
 
-PlayerService::PlayerService()
-{
-	player_controller = new PlayerController();
-}
 
-PlayerService::~PlayerService()
-{
-	delete (player_controller);
-}
+namespace Player {
 
-void PlayerService::initialize()
-{
-	player_controller->initialize();
-}
+	PlayerService::PlayerService()
+	{
+		player_controller = new PlayerController();
+	}
 
-void PlayerService::update()
-{
-	player_controller->update();
-}
+	PlayerService::~PlayerService()
+	{
+		delete (player_controller);
+	}
 
-void PlayerService::render()
-{
-	player_controller->render();
+	void PlayerService::initialize()
+	{
+		player_controller->initialize();
+	}
+
+	void PlayerService::update()
+	{
+		player_controller->update();
+	}
+
+	void PlayerService::render()
+	{
+		player_controller->render();
+	}
+
 }

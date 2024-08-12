@@ -1,6 +1,7 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
-#include "header/GameService.h"
+#include "header/Main/GameService.h"
+using namespace Main;
 
 int main() {
     GameService* game_service = new GameService();
