@@ -13,7 +13,7 @@ namespace Enemy
         EnemyView* enemy_view;
         EnemyModel* enemy_model;
 
-        void move();
+        virtual void move() = 0;
         void moveLeft();
         void moveRight();
         void moveDown();

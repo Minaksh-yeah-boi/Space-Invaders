@@ -40,6 +40,8 @@ namespace Enemy
 	//...
 
 	//switch between move functions based on move dir state
+
+	/*
 	void EnemyController::move()
 	{
 		switch (enemy_model->getMovementDirection())
@@ -57,6 +59,7 @@ namespace Enemy
 			break;
 		}
 	}
+	*/
 
 
 	void EnemyController::moveLeft()
