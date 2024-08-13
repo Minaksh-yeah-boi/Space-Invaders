@@ -8,15 +8,15 @@ namespace Enemy
 
     class EnemyController
     {
-    private:
+    protected:
+
+        EnemyView* enemy_view;
+        EnemyModel* enemy_model;
 
         void move();
         void moveLeft();
         void moveRight();
         void moveDown();
-
-        EnemyView* enemy_view;
-        EnemyModel* enemy_model;
 
     public:
         EnemyController();
