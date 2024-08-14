@@ -22,7 +22,7 @@ namespace Enemy
         EnemyController();
         ~EnemyController();
 
-        void initialize();
+        virtual void initialize() = 0;
         void update();
         void render();
 
