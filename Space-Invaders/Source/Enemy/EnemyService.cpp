@@ -7,6 +7,7 @@ namespace Enemy
 {
 	using namespace Global;
 	using namespace Time;
+	
 
 	EnemyService::EnemyService() { }
 
@@ -44,16 +45,37 @@ namespace Enemy
 		}
 	}
 
-	void EnemyService::spawnEnemy()
+	EnemyController* EnemyService::spawnEnemy()
 	{
-		EnemyController* enemy_controller = new EnemyController(); // create
-		enemy_controller->initialize(); // init as soon as created
+		// The base class pointer will be pointing to a child class object
+		EnemyController* enemy_controller = createEnemy(getRandomEnemyType());
 
-		enemy_list.push_back(enemy_controller); //add to list
+		enemy_controller->initialize();
+		enemy_list.push_back(enemy_controller);
+
+		return enemy_controller;
 	}
 
 	void EnemyService::destroy()
 	{
 		for (int i = 0; i < enemy_list.size(); i++) delete (enemy_list[i]); //delete all enemies
+	}
+
+	EnemyController* EnemyService::createEnemy(EnemyType enemy_type)
+	{
+		switch (enemy_type)
+		{
+		case::Enemy::EnemyType::ZAPPER:
+			return new ZapperController(Enemy::EnemyType::ZAPPER);
+
+			/*case::Enemy::EnemyType::THUNDER_SNAKE:
+				return new ThunderSnakeController(Enemy::EnemyType::THUNDER_SNAKE);*/
+
+		case::Enemy::EnemyType::SUBZERO:
+			return new SubzeroController(Enemy::EnemyType::SUBZERO);
+
+			/*case::Enemy::EnemyType::UFO:
+				return new UFOController(Enemy::EnemyType::UFO);*/
+		}
 	}
 }
